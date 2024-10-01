@@ -6,13 +6,19 @@ const big10 = arr.filter(function(num) {
   return num > 0 && num < 10;
 });
 
-console.log(big10);
+let bigSum = 0;
+
+big10.forEach(element => {
+  bigSum += element;
+});
+
+console.log(bigSum);
 
 //Дан массив со строками. Оставьте в этом массиве только те строки, которые начинаются на http://.
 const strArr = ['https://youtube.com', 'http://google.com', 'https://website.com', 'aaaaaa'];
 
 const result = strArr.filter(function(str) {
-  return str.startsWith('https://');
+  return str.startsWith('http://');
 });
 
 console.log(result)
@@ -22,8 +28,10 @@ console.log(result)
 function getNamesOfPeopleOlderThanX(people, x) {
     return people.filter(function(person) {
       return person.age > x;
+    }).map(function(person) {
+      return person.name;
     });
-  }
+  };
   
   let people = [
     { name: "John", age: 30 },
@@ -36,5 +44,7 @@ console.log(getNamesOfPeopleOlderThanX(people, 27));
 
 // Удалите из массива все пустые строки.
 let deleteArr = [1, '', 2, 3, '', 5];
-myArray = myArray.filter(String);
+deleteArr = deleteArr.filter(function(value){
+  return value !== ""
+});
 console.log(myArray);
